@@ -1,0 +1,175 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>coinmate trading app</title>  
+    <link rel="stylesheet" href="coinmate2.css">  
+</head>  
+<body>  
+    <header>  
+        <h1>Coinmate</h1>  
+    </header>  
+
+    <main>  
+        <!-- KYC Verification Section -->  
+        <section id="kyc-verification">  
+            <h2>KYC Verification</h2>  
+            <form id="kyc-form">  
+                <div>  
+                    <label for="full-name">Full Name:</label>  
+                    <input type="text" id="full-name" placeholder="Enter your full name" required>  
+                </div>  
+                <div>  
+                    <label for="email">Email:</label>  
+                    <input type="email" id="email" placeholder="Enter your email" required>  
+                </div>  
+                <div>  
+                    <label for="identity-document">Identity Document:</label>  
+                    <input type="file" id="identity-document" accept=".jpg, .jpeg, .png, .pdf" required><br>  
+                    <small>Upload a clear image or PDF of your identity document (passport, ID card)</small>  
+                </div>  
+                <div>  
+                    <label for="address">Address:</label>  
+                    <input type="text" id="address" placeholder="Enter your address" required>  
+                </div>  
+                <div>  
+                    <label for="phone">Phone Number:</label>  
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>  
+                </div>  
+                <button type="submit">Submit KYC</button>  
+            </form>  
+            <div id="kyc-status" style="margin-top: 20px;"></div>  
+        </section>  
+
+        <!-- User Listing and Discovery Section -->  
+        <section id="discovery">  
+            <h2>User Listing and Discovery</h2>  
+            <form id="offer-form">  
+                <div>  
+                    <label for="offer-type">Offer Type:</label>  
+                    <select id="offer-type">  
+                        <option value="buy">Buy</option>  
+                        <option value="sell">Sell</option>  
+                    </select>  
+                </div>  
+                <div>  
+                    <label for="offer-crypto-pair">Cryptocurrency Pair:</label>  
+                    <select id="offer-crypto-pair">  
+                        <option value="BTC/USD">BTC/USD</option>  
+                        <option value="ETH/USD">ETH/USD</option>  
+                        <option value="LTC/USD">LTC/USD</option>  
+                    </select>  
+                </div>  
+                <div>  
+                    <label for="offer-price">Price:</label>  
+                    <input type="number" id="offer-price" placeholder="Price" required>  
+                </div>  
+                <div>  
+                    <label for="offer-location">Location:</label>  
+                    <input type="text" id="offer-location" placeholder="Location" required>  
+                </div>  
+                <div>  
+                    <label for="offer-payment-method">Payment Methods:</label>  
+                    <select id="offer-payment-method">  
+                        <option value="Cash">Cash</option>  
+                        <option value="Bank Transfer">Bank Transfer</option>  
+                        <option value="Mobile Payment">Mobile Payment</option>  
+                    </select>  
+                </div>  
+                <button type="submit">Post Offer</button>  
+            </form>  
+            <div id="offers-list"> 
+                 <!-- Crypto Wallet Section -->  
+<section id="crypto-wallet">  
+    <h2>Your Multi-Blockchain Wallet</h2>  
+    <div>  
+        <label for="wallet-address">Your Wallet Address:</label>  
+        <input type="text" id="wallet-address" placeholder="Enter your Wallet Address" required>  
+    </div>  
+    <div>  
+        <label for="blockchain-select">Select Blockchain:</label>  
+        <select id="blockchain-select">  
+            <option value="BTC">Bitcoin (BTC)</option>  
+            <option value="ETH">Ethereum (ETH)</option>  
+            <option value="BNB">Binance Smart Chain (BNB)</option>  
+            <option value="LTC">Litecoin (LTC)</option>  
+            <option value="XRP">Ripple (XRP)</option>  
+            <option value="DOGE">Dogecoin (DOGE)</option>
+            <option value="ADA">Cardano (ADA)</option>
+            <option value="DOT">Polkadot (DOT)</option>
+            <option value="Pi">PI network</option>
+            <option value="USDT">Tether Tron TRC20 (USDT)</option>
+            <!-- Add more blockchains as needed -->  
+        </select>  
+    </div>  
+    <div>  
+        <label for="wallet-balance">Wallet Balance:</label>  
+        <input type="text" id="wallet-balance" placeholder="Balance will be displayed here" disabled>  
+    </div>  
+    <button id="check-balance">Check Balance</button>  
+    <button id="send-crypto">Send Crypto</button>   
+                  <!-- Send Crypto Modal -->  
+    <div id="sendCryptoModal" class="modal" style="display:none;">  
+        <div class="modal-header">  
+            <h2>Send Crypto</h2>  
+            <button id="close-send-modal">Close</button>  
+        </div>  
+        <form id="send-crypto-form">  
+            <div>  
+                <label for="recipient-address">Recipient Address:</label>  
+                <input type="text" id="recipient-address" placeholder="Enter recipient's address" required>  
+            </div>  
+            <div>  
+                <label for="amount">Amount:</label>  
+                <input type="number" id="amount" required>  
+            </div>  
+            <button type="submit">Send</button>  
+        </form>  
+    </div>  
+</section>  
+                <h3>Available Offers</h3>  
+                <ul id="offers"></ul>  
+            </div>  
+
+            <!-- Chat Modal -->  
+            <div id="chatModal" class="chat-modal" style="display:none;">  
+                <div class="chat-header">  
+                    <h2>Chat</h2>  
+                    <button id="close-chat">Close</button>  
+                </div>  
+                <div class="chat-messages" id="chat-messages"></div>  
+                <form id="chat-form">  
+                    <input type="text" id="chat-message" placeholder="Type a message..." required>  
+                    <button type="submit">Send</button>  
+                </form>  
+            </div>  
+        </section>  
+
+        <!-- Features Section -->  
+        <section id="features">  
+            <h2>How It Works</h2>  
+            <ol>  
+                <li>Find a Buyer/Seller using location services.</li>  
+                <li>Negotiate terms via secure chat.</li>  
+                <li>Confirm trade with QR code payment or escrow.</li>  
+                <li>Verify transactions before finalizing trades.</li>  
+                <li>Rate and review transactions.</li>  
+            </ol>  
+        </section>  
+
+        <section id="safety-tips">  
+            <h2>Safety Tips</h2>  
+            <ul>  
+                <li>Meet in public places.</li>  
+                <li>Use escrow for large deals.</li>  
+                <li>Always verify identities before transactions.</li>  
+            </ul>  
+        </section>  
+       
+    </main>   <footer>  
+        <p>&copy; 2025 CoinMate. All rights reserved.</p>  
+    </footer>  
+ <script src="app.js"></script>  
+</body>  
+</html>  
